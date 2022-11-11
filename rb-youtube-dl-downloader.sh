@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ruby -se 'q = %Q[\u0027]; print %q[> url: ]; url = gets.strip; print %q[> mp3 or mp4?: ]; type = gets.strip; unless type =~ %r~^(?i)mp[34]$~ then puts %q[> ERROR: mp3 or mp4 needed!]; exit end; (cmd = type =~ %r~^(?i)mp3$~ ? $ytmp3 : $ytmp4) << " " << q << url << q; puts %Q[> #{cmd}]; system(cmd)' -- -ytmp3='youtube-dl -x -f bestaudio --audio-quality 0 --audio-format mp3' -ytmp4="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4"

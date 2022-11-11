@@ -1,0 +1,1 @@
+perl -M'Term::ANSIColor 2.00 qw(:pushpop)' -sE 'map { say PUSHCOLOR BRIGHT_GREEN qq[> $_]; print RESET; system $_ } split m[~], $ufw' -- -ufw='sudo apt -y install ufw~sudo ufw default allow outgoing~sudo ufw default deny incoming~sudo ufw allow ssh~sudo ufw allow http~sudo ufw allow https~yes | sudo ufw enable~sudo ufw status verbose'
